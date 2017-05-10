@@ -1,4 +1,3 @@
-C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Web.db
 C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
 C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
 C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
