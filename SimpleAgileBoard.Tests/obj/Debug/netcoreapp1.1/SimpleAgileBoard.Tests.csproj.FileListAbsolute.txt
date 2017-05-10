@@ -1,0 +1,14 @@
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Web.db
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.deps.json
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.runtimeconfig.json
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.runtimeconfig.dev.json
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.dll
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.pdb
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Web.dll
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\bin\Debug\netcoreapp1.1\SimpleAgileBoard.Web.pdb
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\obj\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.AssemblyInfo.cs
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\obj\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.dll
+C:\code\playground\SimpleAgileBoard\SimpleAgileBoard.Tests\obj\Debug\netcoreapp1.1\SimpleAgileBoard.Tests.pdb
