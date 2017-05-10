@@ -33,6 +33,7 @@ namespace SimpleAgileBoard.Web.Services
             var task = db.Tasks.FirstOrDefault(t=>t.Id==Id);
             if(task == null) return null;
             Console.WriteLine("{0}:\tSqlServerTaskService.MoveTask - Found a task: {{\r\n\tId: {1},\r\n\tName: {2},\r\n\tStatus: {3}}}",DateTime.Now,task.Id,task.Name,task.Status);
+            if(task.Status == status) throw new InvalidOperationException("Destination status is the same as current");
             task.Status = status;
             Console.WriteLine("{0}:\tSqlServerTaskService.MoveTask Writing to database...",DateTime.Now );
             db.SaveChanges();

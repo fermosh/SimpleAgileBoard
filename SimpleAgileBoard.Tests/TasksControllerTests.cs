@@ -44,6 +44,13 @@ namespace SimpleAgileBoard.Tests
             Assert.AreEqual(pendingTaskId, returnedTask.Id);
         }
         [TestMethod]
+        public void StartAStartedTask()
+        {
+            var controller = new TasksController(service);
+            var result = controller.Start(wipTaskId);
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+        [TestMethod]
         public void StartNonExistentTask()
         {
             var controller = new TasksController(service);
@@ -60,6 +67,13 @@ namespace SimpleAgileBoard.Tests
             Assert.IsNotNull((result as OkObjectResult).Value);
             var returnedTask = (result as OkObjectResult).Value as TaskViewModel;
             Assert.AreEqual(wipTaskId, returnedTask.Id);
+        }
+        [TestMethod]
+        public void DropDoneTask()
+        {
+            var controller = new TasksController(service);
+            var result = controller.Drop(doneTaskId);
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
         }
         [TestMethod]
         public void DropNonExistentTask()
@@ -80,6 +94,13 @@ namespace SimpleAgileBoard.Tests
             Assert.AreEqual(wipTaskId, returnedTask.Id);
         }
         [TestMethod]
+        public void FinishFinishedTask()
+        {
+            var controller = new TasksController(service);
+            var result = controller.Finish(doneTaskId);
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
+        }
+        [TestMethod]
         public void FinishNonExistentTask()
         {
             var controller = new TasksController(service);
@@ -96,6 +117,13 @@ namespace SimpleAgileBoard.Tests
             Assert.IsNotNull((result as OkObjectResult).Value);
             var returnedTask = (result as OkObjectResult).Value as TaskViewModel;
             Assert.AreEqual(doneTaskId, returnedTask.Id);
+        }
+        [TestMethod]
+        public void RetakeOngoingTask()
+        {
+            var controller = new TasksController(service);
+            var result = controller.Retake(wipTaskId);
+            Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
         }
         [TestMethod]
         public void RetakeNonExistentTask()
