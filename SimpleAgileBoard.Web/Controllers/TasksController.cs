@@ -28,6 +28,8 @@ namespace SimpleAgileBoard.Web.Controllers
                 }
                 Console.WriteLine("{0}:\tTasksController - Task not found: {1}",DateTime.Now,id);
                 return NotFound("No such task");
+            }catch(InvalidOperationException ioe){
+                return BadRequest(ioe);
             }catch(Exception e){
                 Console.WriteLine("{0}:\tTasksController - Error: {1}",DateTime.Now,e.Message);
                 return StatusCode(500,e);
@@ -35,7 +37,7 @@ namespace SimpleAgileBoard.Web.Controllers
         }
         [HttpPost]
         public IActionResult Drop(Guid id){
-            Console.WriteLine("{0}:\tTasksController - Starting Task: {1}",DateTime.Now,id);
+            Console.WriteLine("{0}:\tTasksController - Droping Task: {1}",DateTime.Now,id);
             try{
                 Console.WriteLine("{0}:\tTasksController - Calling __taskService.MoveTask('{1}',BoardTaskStatus.TO_DO)",DateTime.Now,id);
                 var sm = __taskService.MoveTask(id,BoardTaskStatus.TO_DO);
@@ -45,6 +47,8 @@ namespace SimpleAgileBoard.Web.Controllers
                 }
                 Console.WriteLine("{0}:\tTasksController - Task not found: {1}",DateTime.Now,id);
                 return NotFound("No such task");
+            }catch(InvalidOperationException ioe){
+                return BadRequest(ioe);
             }catch(Exception e){
                 Console.WriteLine("{0}:\tTasksController - Error: {1}",DateTime.Now,e.Message);
                 return StatusCode(500,e);
@@ -52,7 +56,7 @@ namespace SimpleAgileBoard.Web.Controllers
         }
         [HttpPost]
         public IActionResult Finish(Guid id){
-           Console.WriteLine("{0}:\tTasksController - Starting Task: {1}",DateTime.Now,id);
+           Console.WriteLine("{0}:\tTasksController - Finishing Task: {1}",DateTime.Now,id);
             try{
                 Console.WriteLine("{0}:\tTasksController - Calling __taskService.MoveTask('{1}',BoardTaskStatus.DONE)",DateTime.Now,id);
                 var sm = __taskService.MoveTask(id,BoardTaskStatus.DONE);
@@ -62,6 +66,8 @@ namespace SimpleAgileBoard.Web.Controllers
                 }
                 Console.WriteLine("{0}:\tTasksController - Task not found: {1}",DateTime.Now,id);
                 return NotFound("No such task");
+            }catch(InvalidOperationException ioe){
+                return BadRequest(ioe);
             }catch(Exception e){
                 Console.WriteLine("{0}:\tTasksController - Error: {1}",DateTime.Now,e.Message);
                 return StatusCode(500,e);
@@ -69,7 +75,7 @@ namespace SimpleAgileBoard.Web.Controllers
         }
         [HttpPost]
         public IActionResult Retake(Guid id){
-            Console.WriteLine("{0}:\tTasksController - Starting Task: {1}",DateTime.Now,id);
+            Console.WriteLine("{0}:\tTasksController - Retaking Task: {1}",DateTime.Now,id);
             try{
                 Console.WriteLine("{0}:\tTasksController - Calling __taskService.MoveTask('{1}',BoardTaskStatus.IN_PROGRESS)",DateTime.Now,id);
                 var sm = __taskService.MoveTask(id,BoardTaskStatus.IN_PROGRESS);
@@ -79,6 +85,8 @@ namespace SimpleAgileBoard.Web.Controllers
                 }
                 Console.WriteLine("{0}:\tTasksController - Task not found: {1}",DateTime.Now,id);
                 return NotFound("No such task");
+            }catch(InvalidOperationException ioe){
+                return BadRequest(ioe);
             }catch(Exception e){
                 Console.WriteLine("{0}:\tTasksController - Error: {1}",DateTime.Now,e.Message);
                 return StatusCode(500,e);
