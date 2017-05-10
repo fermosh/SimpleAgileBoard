@@ -8,7 +8,9 @@
         <h2>To do:</h2>
         <ul id="ToDoList">
             @foreach (var todo in Model.ToDo) {
-                <li id="@todo.Id"><h5>@todo.Name</h5><br/><a href="#" onclick="start('@todo.Id');">Start</a></li>
+                <li id="@todo.Id"><h5>@todo.Name</h5><br/>
+                    <div class="links"><a href="#" onclick="start('@todo.Id');">Start</a></div>
+                </li>
             }
         </ul>
     </div>
@@ -16,7 +18,9 @@
         <h2>In Progress:</h2>
         <ul id="InProgressList">
              @foreach (var inp in Model.InProgress) {
-                <li id="@inp.Id"><h5>@inp.Name</h5><br/><a href="#" onclick="drop('@inp.Id');">Drop</a>&nbsp;|&nbsp;<a href="#" onclick="start('@inp.Id');">Finish</a></li>
+                <li id="@inp.Id"><h5>@inp.Name</h5><br/>
+                    <div class="links"><a href="#" onclick="drop('@inp.Id');">Drop</a>&nbsp;|&nbsp;<a href="#" onclick="start('@inp.Id');">Finish</a></div>
+                </li>
             }
         </ul>
     </div>
@@ -24,7 +28,9 @@
         <h2>Done:</h2>
         <ul id="DoneList">
             @foreach (var done in Model.Done) {
-                <li id="@done.Id"><h5>@done.Name</h5><br/><a href="#" onclick="reTake('@done.Id');">Retake</a></li>
+                <li id="@done.Id"><h5>@done.Name</h5><br/>
+                    <div class="links"><a href="#" onclick="reTake('@done.Id');">Retake</a></div>
+                </li>
             }
         </ul>
     </div>
