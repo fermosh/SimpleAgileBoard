@@ -46,13 +46,17 @@ namespace SimpleAgileBoard.Tests
                             status=>status==BoardTaskStatus.IN_PROGRESS
                         ) 
                     )
-            ).Returns(
+            )
+            .Returns(
                 (Guid id,BoardTaskStatus status) => new BoardTask{
                     Id=id,
                     Name=String.Empty,
                     Status=status
                 }
-            ) ;
+            ) 
+            .Callback<Guid,BoardTaskStatus>( 
+                (id,status) => Console.WriteLine("{0}:\tMock Service - Moved task {1} to status {2}",DateTime.Now , id,status)
+            );
             
             var controller = new TasksController(service);
             var result = controller.Start(pendingTaskId);
@@ -72,7 +76,11 @@ namespace SimpleAgileBoard.Tests
                             status=>status==BoardTaskStatus.IN_PROGRESS
                         ) 
                     )
-            ).Throws( new InvalidOperationException() ) ;
+            )
+            .Callback<Guid,BoardTaskStatus>( 
+                (id,status) => Console.WriteLine("{0}:\tMock Service - About to throw an exception!",DateTime.Now)
+            )
+            .Throws( new InvalidOperationException() ) ;
             var controller = new TasksController(service);
             var result = controller.Start(wipTaskId);
             Assert.IsInstanceOfType(result, typeof(BadRequestObjectResult));
@@ -89,6 +97,7 @@ namespace SimpleAgileBoard.Tests
 
             var controller = new TasksController(service);
             var result = controller.Start(nonExistentTaskId);
+            serviceMock.Verify( svc => svc.MoveTask(It.IsAny<Guid>(),It.IsAny<BoardTaskStatus>()) );
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
         }
         [TestMethod]
@@ -113,6 +122,7 @@ namespace SimpleAgileBoard.Tests
             Assert.IsInstanceOfType(result, typeof(OkObjectResult));
             Assert.IsNotNull(result);
             Assert.IsNotNull((result as OkObjectResult).Value);
+            serviceMock.Verify( svc => svc.MoveTask(It.IsAny<Guid>(),It.IsAny<BoardTaskStatus>()), Times.AtLeastOnce() );
             var returnedTask = (result as OkObjectResult).Value as TaskViewModel;
             Assert.AreEqual(wipTaskId, returnedTask.Id);
         }
@@ -140,6 +150,7 @@ namespace SimpleAgileBoard.Tests
                     It.IsAny<BoardTaskStatus>() 
                 )
             ).Returns( (BoardTask) null ) ;
+            serviceMock.Verify( svc => svc.GetAllTasks(), Times.Never() );
             var controller = new TasksController(service);
             var result = controller.Drop(nonExistentTaskId);
             Assert.IsInstanceOfType(result, typeof(NotFoundObjectResult));
